@@ -1,7 +1,7 @@
 # Flask API
 
 ## Dependencies
-- [flask](https://palletsprojects.com/p/flask/)
+- [flask](https://palletsprojects.com/p/flask/): Python server of choise
 - [flasgger](https://github.com/flasgger/flasgger): Used to generate the swagger documentation
 - [flask-expects-json](https://github.com/Fischerfredl/flask-expects-json): Used to validate JSON request data
 - [jsonschema](https://github.com/Julian/jsonschema): Used to create the schema that the validator object
