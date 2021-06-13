@@ -4,28 +4,30 @@ import json
 from api.route.pool import find_quantile
 import numpy as np
 
+prefix_path = '/api/v1/pools'
+
 class TestPool(TestCase):
     def setUp(self):
         self.app = create_app().test_client()
 
     def test_insert_pool_success(self):
     	payload = json.dumps({'pool_id': 2,'pool_values': [1]})
-    	response = self.app.post('/api/pools/append_pool', headers={"Content-Type": "application/json"}, data=payload)
+    	response = self.app.post('%s/append_pool' % prefix_path, headers={"Content-Type": "application/json"}, data=payload)
     	self.assertEqual(200, response.status_code)
 
     def test_insert_pool_error(self):
     	payload = json.dumps({'pool_id': '2','pool_values': [1]})
-    	response = self.app.post('/api/pools/append_pool', headers={"Content-Type": "application/json"}, data=payload)
+    	response = self.app.post('%s/append_pool' % prefix_path, headers={"Content-Type": "application/json"}, data=payload)
     	self.assertEqual(400, response.status_code)
 
     def test_query_pool_success(self):
     	payload = json.dumps({'pool_id': 1,'percentile': 95})
-    	response = self.app.post('/api/pools/query_pool', headers={"Content-Type": "application/json"}, data=payload)
+    	response = self.app.post('%s/query_pool' % prefix_path, headers={"Content-Type": "application/json"}, data=payload)
     	self.assertEqual(200, response.status_code)   
 
     def test_query_pool_error(self):
     	payload = json.dumps({'pool_id': 2,'percentile': 101})
-    	response = self.app.post('/api/pools/query_pool', headers={"Content-Type": "application/json"}, data=payload)
+    	response = self.app.post('%s/query_pool' % prefix_path, headers={"Content-Type": "application/json"}, data=payload)
     	self.assertEqual(400, response.status_code)
 
     def test_find_quantile(self):

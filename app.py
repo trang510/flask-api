@@ -12,7 +12,7 @@ def create_app():
     }
     swagger = Swagger(app)
 
-    app.register_blueprint(pool_api, url_prefix='/api')
+    app.register_blueprint(pool_api, url_prefix='/api/v1/pools')
 
     return app
 

@@ -46,7 +46,7 @@ schema_query_pool = {
     'required': ['pool_id', 'percentile']
 }
 
-@pool_api.route('/pools/append_pool', methods=['POST'])
+@pool_api.route('/append_pool', methods=['POST'])
 @expects_json(schema_insert_pool)
 def pools_insert_or_append():
     """
@@ -99,7 +99,7 @@ def pools_insert_or_append():
     return jsonify({'status': status})
 
 
-@pool_api.route('/pools/query_pool', methods=['POST'])
+@pool_api.route('/query_pool', methods=['POST'])
 @expects_json(schema_query_pool)
 def query_pool():
     """Query the size of pool and the quantile of pool with input percentile number
