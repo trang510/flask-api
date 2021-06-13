@@ -9,9 +9,17 @@
 
 ## Set Up
 
-1. Check out the code
+1. Project setup
+```sh
+# clone the repo
+$ git clone https://github.com/trang510/flask-api.git
+# move to the project folder
+$ cd flask-api
+```
 
-2. Install requirements
+2. Creating virtual environment
+- Install `pipenv` a global python project `pip install pipenv`
+- Create a `virtual environment` for this project
     ```
     pipenv install
     ```
